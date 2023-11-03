@@ -1,25 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PostList from "./post-list";
+import PostPage from "./post-page";
+import PostForm from "./post-form";
 import "./App.css";
-import Home from "./home";
-import Get from "./get-request";
-import Post from "./post-request";
-import Put from "./put-request";
-import Delete from "./delete-request";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="p-6 pb-0 h-full text-slate-700 bg-slate-200 dark:bg-slate-700 dark:text-slate-200">
+      <div className="overflow-auto h-full flex-col justify-center">
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/get" element={<Get />} />
-            <Route path="/post" element={<Post />} />
-            <Route path="/put" element={<Put />} />
-            <Route path="/delete" element={<Delete />} />
+            <Route path="/" element={<PostList />} />
+            <Route path="/post/:id" element={<PostPage />} />
+            <Route path="/post-form/:id" element={<PostForm />} />
+            <Route path="/post-form" element={<PostForm />} />
           </Routes>
         </Router>
-      </header>
+      </div>
     </div>
   );
 }
